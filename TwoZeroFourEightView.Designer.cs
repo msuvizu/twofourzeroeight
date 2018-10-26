@@ -48,6 +48,8 @@
             this.btnUp = new System.Windows.Forms.Button();
             this.btnRight = new System.Windows.Forms.Button();
             this.btnDown = new System.Windows.Forms.Button();
+            this.ScoreBox = new System.Windows.Forms.Label();
+            this.GameOver = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // lbl00
@@ -114,6 +116,7 @@
             this.lbl13.TabIndex = 7;
             this.lbl13.Text = "0";
             this.lbl13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl13.Click += new System.EventHandler(this.lbl13_Click);
             // 
             // lbl12
             // 
@@ -166,6 +169,7 @@
             this.lbl23.TabIndex = 11;
             this.lbl23.Text = "0";
             this.lbl23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lbl23.Click += new System.EventHandler(this.lbl23_Click);
             // 
             // lbl22
             // 
@@ -298,11 +302,35 @@
             this.btnDown.UseVisualStyleBackColor = true;
             this.btnDown.Click += new System.EventHandler(this.btnDown_Click);
             // 
+            // ScoreBox
+            // 
+            this.ScoreBox.AutoSize = true;
+            this.ScoreBox.Location = new System.Drawing.Point(222, 403);
+            this.ScoreBox.Name = "ScoreBox";
+            this.ScoreBox.Size = new System.Drawing.Size(35, 13);
+            this.ScoreBox.TabIndex = 20;
+            this.ScoreBox.Text = "label1";
+            // 
+            // GameOver
+            // 
+            this.GameOver.BackColor = System.Drawing.SystemColors.Desktop;
+            this.GameOver.Font = new System.Drawing.Font("News706 BT", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.GameOver.ForeColor = System.Drawing.SystemColors.Info;
+            this.GameOver.Location = new System.Drawing.Point(78, 128);
+            this.GameOver.Name = "GameOver";
+            this.GameOver.Size = new System.Drawing.Size(168, 33);
+            this.GameOver.TabIndex = 21;
+            this.GameOver.Text = "GAME OVER!!";
+            this.GameOver.Visible = false;
+            this.GameOver.TextChanged += new System.EventHandler(this.GameOver_TextChanged);
+            // 
             // TwoZeroFourEightView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(344, 428);
+            this.ClientSize = new System.Drawing.Size(307, 420);
+            this.Controls.Add(this.GameOver);
+            this.Controls.Add(this.ScoreBox);
             this.Controls.Add(this.btnDown);
             this.Controls.Add(this.btnRight);
             this.Controls.Add(this.btnUp);
@@ -325,7 +353,9 @@
             this.Controls.Add(this.lbl00);
             this.Name = "TwoZeroFourEightView";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.TwoZeroFourEightView_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -351,6 +381,8 @@
         private System.Windows.Forms.Button btnUp;
         private System.Windows.Forms.Button btnRight;
         private System.Windows.Forms.Button btnDown;
+        private System.Windows.Forms.Label ScoreBox;
+        private System.Windows.Forms.TextBox GameOver;
     }
 }
 

@@ -34,6 +34,56 @@ namespace twozerofoureight
             // initialize board
             HandleChanges();
         }
+        public string GetScore()
+        {
+            int sum = 0;
+            for(int i = 0; i < boardSize; i++)
+            {
+                for(int j = 0; j < boardSize; j++)
+                {
+                    sum += board[i, j];
+                }
+            }
+            return sum.ToString();
+        }
+
+        public bool Gameover()
+        {
+            int table = 16;
+            for(int i=0; i < boardSize; i++)
+                for(int j=0; j<boardSize;j++)
+            {
+                    if (board[i, j] > 0)
+                    {
+                        table--;
+                    }
+            }
+
+            if (table==0)
+            {
+                for(int i=0;i < boardSize;i++)
+                    for(int j=0; j < boardSize; j++)
+                    {
+                        if (i+1 < 4 && j+1 <4)
+                        {
+                            if (board[i, j] == board[i + 1, j ])
+                            {
+                                return false;
+                            }
+
+                            if (board[i, j] == board[i , j+1])
+                            {
+                                return false;
+                            }
+                        }
+                        
+                    }
+                return true;
+            } else
+                return false;
+        }
+
+        
 
         public int[,] GetBoard()
         {
